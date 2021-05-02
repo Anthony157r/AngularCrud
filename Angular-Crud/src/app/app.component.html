@@ -1,0 +1,49 @@
+<head>
+<link rel="stylesheet" type="text/css" href="app.component.css"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">    
+</head>
+<body>
+<div align="center">
+  <h1>LISTADO DE USUARIOS</h1>
+  <table border="1" *ngIf="hayRegistros(); else sin">
+    <tr>
+      <td>Id</td>
+      <td>Nombre completo</td>
+      <td>N° Telefonico</td>
+      <td>Correo electronico</td>
+      <td>Peso</td>
+      <td>Altura</td>
+      <td>Especificacion</td>
+    </tr>
+    <tr *ngFor="let usuario of usuarios">
+      <td> {{usuario.idUsuario }} </td>
+      <td> {{usuario.nombre }} </td>
+      <td> {{usuario.telefono }} </td>
+      <td> {{usuario.email }} </td>
+      <td> {{usuario.peso }} </td>
+      <td> {{usuario.altura }} </td>
+      <td> {{usuario.especificacion }} </td>
+      <td> <button class="button button1"  (click)="bajaUsuario(usuario.idUsuario)"> Eliminar </button> </td>
+      <td> <button class="button button1"  (click)="seleccionarUsuario(usuario.idUsuario)"> Seleccionar </button> </td>
+    </tr>
+  </table>
+
+  <ng-template #sin>
+    <p>No hay usuarios registrados.</p>
+  </ng-template>
+
+  <div>
+    <p> Nombre: <input class="w3-input" type="text" [(ngModel)]="usuario.nombre" placeholder="Juan Perez"/> </p>
+    <p> Telefono: <input class="w3-input" type="number" [(ngModel)]="usuario.telefono" placeholder="##########"/> </p>
+    <p> Email: <input class="w3-input" type="text" [(ngModel)]="usuario.email" placeholder="Correo@gmail.com"/> </p>
+    <p> Peso: <input class="w3-input" type="text" [(ngModel)]="usuario.peso" placeholder="75.500"/> </p>
+    <p> Altura: <input class="w3-input" type="text" [(ngModel)]="usuario.altura" placeholder="1.50"/> </p>
+    <p> Especificacion: <input class="w3-input" type="text" [(ngModel)]="usuario.especificacion" placeholder="sobrepeso,pesoideal,etc"/> </p>
+    <p> 
+      <button class="button button1" (click)="altaUsuario()"> Agregar </button> 
+      <button class="button button1"  (click)="editarUsuario()"> Editar </button> 
+    </p>
+  </div>
+
+</div>
+</body>

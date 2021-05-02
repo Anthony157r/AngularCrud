@@ -1,0 +1,4 @@
+Creas dentro de esta parte un proyecto aungular llamado 'frontend'
+dentro remplazas la carpeta src por la que esta aqui
+y la carpeta Agular-Crud la pones en htdocs :3
+y exportas la base de datos crudangular.sql
